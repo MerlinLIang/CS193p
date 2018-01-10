@@ -71,6 +71,9 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     self.matchingMode = (int)[UserDefaultHelper readIntegerFromDefaultByKey:@"PlayingCardMathcingMode"];
+  if (!self.matchingMode) {
+    self.matchingMode = 2;
+  }
 }
 
 @end

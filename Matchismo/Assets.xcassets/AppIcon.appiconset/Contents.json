@@ -45,6 +45,12 @@
       "idiom" : "iphone",
       "filename" : "AppIcon@3x.png",
       "scale" : "3x"
+    },
+    {
+      "size" : "1024x1024",
+      "idiom" : "ios-marketing",
+      "filename" : "dca7267f9e2f0708aadb2d69e024b899a801f26a.png",
+      "scale" : "1x"
     }
   ],
   "info" : {
