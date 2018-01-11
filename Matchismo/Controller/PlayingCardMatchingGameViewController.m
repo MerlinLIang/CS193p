@@ -38,7 +38,7 @@
 - (IBAction)touchCardButton:(UIButton *)sender {    // when pick a card
     [self scoreRecord];
     NSUInteger chosenButtonIndex = [self.cardButtons indexOfObject:sender];
-    [self.game chooseCardAtIndex:chosenButtonIndex cardCount: self.matchingMode];   // matching mode, assume by settings
+    [self.game chooseCardAtIndex:chosenButtonIndex cardCount:self.matchingMode];   // matching mode, assume by settings
     [self updateUI];
 }
 
@@ -69,10 +69,18 @@
 
 #pragma mark - lifecycle
 
-- (void)viewWillAppear:(BOOL)animated {
-    self.matchingMode = (int)[UserDefaultHelper readIntegerFromDefaultByKey:@"PlayingCardMathcingMode"];
+- (void)viewDidLoad {
+  self.matchingMode = (int)[UserDefaultHelper readIntegerFromDefaultByKey:@"PlayingCardMathcingMode"];
   if (!self.matchingMode) {
     self.matchingMode = 2;
+    [UserDefaultHelper writeIntegerToDefault:2 key:@"PlayingCardMathcingMode"];
+  }
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+  int savedMatchingMode = (int)[UserDefaultHelper readIntegerFromDefaultByKey:@"PlayingCardMathcingMode"];
+  if (savedMatchingMode != self.matchingMode) {
+    self.matchingMode = savedMatchingMode;
   }
 }
 

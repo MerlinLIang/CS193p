@@ -34,7 +34,10 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     NSInteger selectedIndex = (NSUInteger)[UserDefaultHelper readIntegerFromDefaultByKey:@"PlayingCardMathcingMode"];
-    self.playingCardModeSeg.selectedSegmentIndex = selectedIndex - 1;
+  if (!selectedIndex) {
+    selectedIndex = 2;
+  }
+  self.playingCardModeSeg.selectedSegmentIndex = selectedIndex - 1;
 }
 
 @end

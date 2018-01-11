@@ -41,7 +41,7 @@
             *suitScoreLevel += 1;
         }
     }
-    if (otherCards.count - 1) {
+    if (otherCards.count >= 1) {
         card = [otherCards lastObject];
         NSArray *leftCards = [otherCards subarrayWithRange:NSMakeRange(0, otherCards.count - 1)];
         [self coreMatchCard:card
