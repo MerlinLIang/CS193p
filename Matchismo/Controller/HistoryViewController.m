@@ -18,23 +18,24 @@
 #pragma mark - lifecycle
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    [self setHistoryTextViewContent];
+  [super viewDidLoad];
+  [self setHistoryTextViewContent];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [self.historyTextView scrollRangeToVisible:NSMakeRange(self.historyTextView.attributedText.length, 1)];
+  [self.historyTextView scrollRangeToVisible:NSMakeRange(self.historyTextView.attributedText.length, 1)];
 }
 
 #pragma mark - set textView's content
 
 - (void)setHistoryTextViewContent {
-    NSMutableAttributedString *content = [[NSMutableAttributedString alloc] init];
-    for (NSAttributedString *history in self.hintHistories) {
-        [content appendAttributedString:history];
-        [content appendAttributedString:[[NSAttributedString alloc] initWithString:@"\n" attributes:nil]];
-    }
-    self.historyTextView.attributedText = [content copy];
+  NSMutableAttributedString *content = [[NSMutableAttributedString alloc] init];
+  for (NSAttributedString *history in self.hintHistories) {
+    [content appendAttributedString:history];
+    [content appendAttributedString:[[NSAttributedString alloc] initWithString:@"\n" attributes:nil]];
+  }
+  self.historyTextView.attributedText = [content copy];
 }
 
 @end
+
