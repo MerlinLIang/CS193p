@@ -18,22 +18,22 @@
 
 #pragma mark - event
 - (IBAction)playingCardMatchingMode:(UISegmentedControl *)sender {
-    [UserDefaultHelper writeIntegerToDefault:sender.selectedSegmentIndex + 1 key:@"PlayingCardMathcingMode"];
+  [UserDefaultHelper writeIntegerToDefault:sender.selectedSegmentIndex + 1 key:@"PlayingCardMathcingMode"];
 }
 
 - (IBAction)resetPlayingCardScoreRecords:(id)sender {
-    [UserDefaultHelper removeDefaultForKey:@"PlayingCardGameRecords"];
+  [UserDefaultHelper removeDefaultForKey:@"PlayingCardGameRecords"];
 }
 - (IBAction)resetSetCardGameScoreRecords:(id)sender {
-    [UserDefaultHelper removeDefaultForKey:@"SetCardGameRecords"];
+  [UserDefaultHelper removeDefaultForKey:@"SetCardGameRecords"];
 }
 
-
+ 
 #pragma mark - lifecycle
 
 - (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    NSInteger selectedIndex = (NSUInteger)[UserDefaultHelper readIntegerFromDefaultByKey:@"PlayingCardMathcingMode"];
+  [super viewWillAppear:animated];
+  NSInteger selectedIndex = (NSUInteger)[UserDefaultHelper readIntegerFromDefaultByKey:@"PlayingCardMathcingMode"];
   if (!selectedIndex) {
     selectedIndex = 2;
   }
@@ -41,3 +41,4 @@
 }
 
 @end
+
