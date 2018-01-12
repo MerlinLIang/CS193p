@@ -326,7 +326,7 @@
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Playing Card Matching Game" id="puX-fZ-fgh">
-                        <barButtonItem key="rightBarButtonItem" title="Hitsory" id="OFJ-Gv-wIW">
+                        <barButtonItem key="rightBarButtonItem" title="Hitsory" springLoaded="YES" id="OFJ-Gv-wIW">
                             <connections>
                                 <segue destination="gIa-nX-YVV" kind="show" identifier="Show History" id="lGZ-66-2js"/>
                             </connections>
@@ -984,4 +984,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="lGZ-66-2js"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

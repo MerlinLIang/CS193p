@@ -23,6 +23,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+  [super viewWillAppear:animated];
   [self.historyTextView scrollRangeToVisible:NSMakeRange(self.historyTextView.attributedText.length, 1)];
 }
 

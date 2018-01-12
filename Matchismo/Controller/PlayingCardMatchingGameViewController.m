@@ -18,10 +18,6 @@
 
 @implementation PlayingCardMatchingGameViewController
 
-- (NSString *)gameName {
-  return @"PlayingCardGame";
-}
-
 #pragma mark - getters & setters
 
 - (Deck *)createCardDeck {  // get a playing card deck
@@ -70,6 +66,7 @@
 #pragma mark - lifecycle
 
 - (void)viewDidLoad {
+  [super viewDidLoad];
   self.matchingMode = (int)[UserDefaultHelper readIntegerFromDefaultByKey:@"PlayingCardMathcingMode"];
   if (!self.matchingMode) {
     self.matchingMode = 2;
@@ -78,11 +75,24 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+  [super viewWillAppear:animated];
   int savedMatchingMode = (int)[UserDefaultHelper readIntegerFromDefaultByKey:@"PlayingCardMathcingMode"];
   if (savedMatchingMode != self.matchingMode) {
     self.matchingMode = savedMatchingMode;
   }
+  
+  [self findOut];
 }
 
+#pragma mark - Tools
+
+- (NSString *)gameName {
+  return @"PlayingCardGame";
+}
+
+- (void)findOut {
+  NSLog(@"%@", self.navigationItem.rightBarButtonItem.tintColor);
+  
+}
 @end
 
