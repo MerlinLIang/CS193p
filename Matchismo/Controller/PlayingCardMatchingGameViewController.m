@@ -80,19 +80,12 @@
   if (savedMatchingMode != self.matchingMode) {
     self.matchingMode = savedMatchingMode;
   }
-  
-  [self findOut];
 }
 
 #pragma mark - Tools
 
 - (NSString *)gameName {
   return @"PlayingCardGame";
-}
-
-- (void)findOut {
-  NSLog(@"%@", self.navigationItem.rightBarButtonItem.tintColor);
-  
 }
 @end
 

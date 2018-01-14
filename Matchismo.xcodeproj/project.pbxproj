@@ -12,6 +12,7 @@
 		EE06B32F1E5AEB75006A690C /* PlayingCardMatchingGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE06B3291E5AEB75006A690C /* PlayingCardMatchingGameViewController.m */; };
 		EE06B3301E5AEB75006A690C /* SetCardMatchingGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE06B32B1E5AEB75006A690C /* SetCardMatchingGameViewController.m */; };
 		EE06B3311E5AEB75006A690C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE06B32D1E5AEB75006A690C /* ViewController.m */; };
+		EE4D051620099F4500494838 /* PlayingCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE4D051520099F4500494838 /* PlayingCardView.m */; };
 		EE5C6B6A1E4B12CC00FAC5C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5C6B691E4B12CC00FAC5C2 /* main.m */; };
 		EE5C6B6D1E4B12CC00FAC5C2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5C6B6C1E4B12CC00FAC5C2 /* AppDelegate.m */; };
 		EE5C6B731E4B12CC00FAC5C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE5C6B711E4B12CC00FAC5C2 /* Main.storyboard */; };
@@ -59,6 +60,8 @@
 		EE06B32B1E5AEB75006A690C /* SetCardMatchingGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SetCardMatchingGameViewController.m; path = Controller/SetCardMatchingGameViewController.m; sourceTree = "<group>"; };
 		EE06B32C1E5AEB75006A690C /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = Controller/ViewController.h; sourceTree = "<group>"; };
 		EE06B32D1E5AEB75006A690C /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = Controller/ViewController.m; sourceTree = "<group>"; };
+		EE4D051420099F4500494838 /* PlayingCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayingCardView.h; path = View/PlayingCardView.h; sourceTree = "<group>"; };
+		EE4D051520099F4500494838 /* PlayingCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayingCardView.m; path = View/PlayingCardView.m; sourceTree = "<group>"; };
 		EE5C6B651E4B12CC00FAC5C2 /* Matchismo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Matchismo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE5C6B691E4B12CC00FAC5C2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EE5C6B6B1E4B12CC00FAC5C2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -139,6 +142,15 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
+		EE4D05132008FFAF00494838 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EE4D051420099F4500494838 /* PlayingCardView.h */,
+				EE4D051520099F4500494838 /* PlayingCardView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		EE5C6B5C1E4B12CC00FAC5C2 = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				EE5C6B711E4B12CC00FAC5C2 /* Main.storyboard */,
+				EE4D05132008FFAF00494838 /* View */,
 				EE06B3251E5AEB0C006A690C /* Controller */,
 				EE5C6B9E1E4B3BC400FAC5C2 /* Model */,
 				EE5C6B681E4B12CC00FAC5C2 /* Supporting Files */,
@@ -374,6 +387,7 @@
 				EE5C6BA71E4B455300FAC5C2 /* PlayingCardDeck.m in Sources */,
 				EE06B32F1E5AEB75006A690C /* PlayingCardMatchingGameViewController.m in Sources */,
 				EE06B3301E5AEB75006A690C /* SetCardMatchingGameViewController.m in Sources */,
+				EE4D051620099F4500494838 /* PlayingCardView.m in Sources */,
 				EE5C6BA41E4B428500FAC5C2 /* Deck.m in Sources */,
 				EE8012DE1E5E77DF00DF48AA /* ScoreRecord.m in Sources */,
 				EE5C6B9D1E4B3B6E00FAC5C2 /* Card.m in Sources */,
