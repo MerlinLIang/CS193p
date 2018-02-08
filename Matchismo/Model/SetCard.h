@@ -7,34 +7,14 @@
 //
 
 #import "Card.h"
-
-typedef enum{
-    SetCardPatternShadingSolid,
-    SetCardPatternShadingStriped,
-    SetCardPatternShadingOpen
-}SetCardPatternShading;
-
-typedef enum {
-    SetCardPatternColorRed,
-    SetCardPatternColorYellow,
-    SetCardPatternColorBlue,
-    SetCardPatternColorGreen,
-    SetCardPatternColorOrange,
-    SetCardPatternColorPurple,
-    SetCardPatternColorGrey,
-    SetCardPatternColorWhite,
-    SetCardPatternColorBlack,
-    SetCardPatternColorbrown,
-    SetCardPatternColorsyan
-}SetCardPatternColor;
+#import "SetCardConstant.h"
 
 @interface SetCard : Card
 
 @property (assign, nonatomic) int number;
-@property (copy, nonatomic) NSString *symbol;
+@property (assign, nonatomic) SetCardPatternSymbol symbol;
 @property (assign, nonatomic) SetCardPatternShading shading;
 @property (assign, nonatomic) SetCardPatternColor color;
 
-+ (NSArray *)validSymbols;
 + (int)maxColorEnum;
 @end

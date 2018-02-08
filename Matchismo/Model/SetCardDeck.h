@@ -11,6 +11,6 @@
 @interface SetCardDeck : Deck
 
 // designed initializer
-- (instancetype)initWithSymbols:(NSArray *)symbols andColors:(NSArray *)colors;
+- (instancetype)initWithColors:(NSArray *)colors;
 
 @end

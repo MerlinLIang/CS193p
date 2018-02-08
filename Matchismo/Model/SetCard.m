@@ -51,12 +51,12 @@
     card2 = (SetCard *)otherCards.lastObject;
   }
   if (card1 && card2) {
-    if ([self.symbol isEqualToString:card1.symbol] &&
-        [self.symbol isEqualToString:card2.symbol]) {
+    if ((self.symbol == card1.symbol) &&
+        (self.symbol == card2.symbol)) {
       *setCount = *setCount + 1;
-    } else if (![self.symbol isEqualToString:card1.symbol] &&
-               ![self.symbol isEqualToString:card2.symbol] &&
-               ![card1.symbol isEqualToString:card2.symbol]) {
+    } else if (!(self.symbol == card1.symbol) &&
+               !(self.symbol == card2.symbol) &&
+               !(card1.symbol == card2.symbol)) {
       *setCount = *setCount + 1;
     }
   }
@@ -108,13 +108,9 @@ const NSUInteger MAX_NUMBER = 3;
   }
 }
 
-@synthesize symbol = _symbol;
-- (NSString *)symbol {
-  return _symbol ? _symbol : @"?";
-}
-
-- (void)setSymbol:(NSString *)symbol {
-  if ([[SetCard validSymbols] containsObject:symbol]) {
+const int MAX_SYMBOL_VALUE = 3;
+- (void)setSymbol:(SetCardPatternSymbol)symbol {
+  if ((symbol > 0) && (symbol <= MAX_SYMBOL_VALUE)) {
     _symbol = symbol;
   }
 }
@@ -135,9 +131,6 @@ const int MAX_SHADING_VALUE = 2;
 
 #pragma mark - Tool methods
 
-+ (NSArray *)validSymbols {
-  return @[@"★", @"❤︎", @"▲", @"♦︎", @"⚑", @"☗", @"◼︎", @"●", @"✖︎"];
-}
 
 + (int)maxColorEnum {
   return 10;

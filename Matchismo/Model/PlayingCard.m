@@ -81,7 +81,7 @@
 }
 
 + (NSArray *)validSuits {
-  return @[@"♠︎", @"♣︎", @"♥︎", @"♦︎"];
+  return @[@"♠️", @"♣️", @"♥️", @"♦️"];
 }
 
 + (NSUInteger)maxRank {

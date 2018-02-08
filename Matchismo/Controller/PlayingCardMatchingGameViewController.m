@@ -8,6 +8,8 @@
 
 #import "PlayingCardMatchingGameViewController.h"
 #import "PlayingCardDeck.h"
+#import "PlayingCard.h"
+#import "PlayingCardView.h"
 #import "UserDefaultHelper.h"
 
 @interface PlayingCardMatchingGameViewController ()
@@ -31,39 +33,51 @@
 
 #pragma mark - Play game method
 // 翻牌
-- (IBAction)touchCardButton:(UIButton *)sender {    // when pick a card
+- (IBAction)touchCardView:(UIView *)sender {    // when pick a card
   [self scoreRecord];
-  NSUInteger chosenButtonIndex = [self.cardButtons indexOfObject:sender];
+  NSUInteger chosenButtonIndex = [self.cardViews indexOfObject:sender];
   [self.game chooseCardAtIndex:chosenButtonIndex cardCount:self.matchingMode];   // matching mode, assume by settings
   [self updateUI];
 }
 
-#pragma mark - Card content
-
-- (NSAttributedString *)cardFace:(Card *)card { // get card face
-  NSString *content = card.contents;
-  UIColor *titleColor = nil;
-  if ([content hasSuffix: @"♠︎"] ||
-      [content hasSuffix: @"♣︎"]) {
-    titleColor = [UIColor blackColor];
-  } else {
-    titleColor = [UIColor redColor];
-  }
-  NSAttributedString *cardTitle = [[NSAttributedString alloc] initWithString:content
-                                                                  attributes:@{NSForegroundColorAttributeName:titleColor}];
-  return cardTitle;
-}
-
-- (NSAttributedString *)titleForCard:(Card *)card { // set card face
-  NSAttributedString *cardTitle = card.isChosen ? [[NSAttributedString alloc] initWithAttributedString:[self cardFace:card]] : [[NSAttributedString alloc] initWithString:@""];
-  return cardTitle;
-}
-
-- (UIImage *)backgroundImageForCard:(Card *)card {  // set card bgimage
-  return [UIImage imageNamed:card.isChosen ? @"CardFront" : @"CardBack"];
-}
+//#pragma mark - Card content
+//
+//- (NSAttributedString *)cardFace:(Card *)card { // get card face
+//  NSString *content = card.contents;
+//  UIColor *titleColor = nil;
+//  if ([content hasSuffix: @"♠︎"] ||
+//      [content hasSuffix: @"♣︎"]) {
+//    titleColor = [UIColor blackColor];
+//  } else {
+//    titleColor = [UIColor redColor];
+//  }
+//  NSAttributedString *cardTitle = [[NSAttributedString alloc] initWithString:content
+//                                                                  attributes:@{NSForegroundColorAttributeName:titleColor}];
+//  return cardTitle;
+//}
+//
+//- (NSAttributedString *)titleForCard:(Card *)card { // set card face
+//  NSAttributedString *cardTitle = card.isChosen ? [[NSAttributedString alloc] initWithAttributedString:[self cardFace:card]] : [[NSAttributedString alloc] initWithString:@""];
+//  return cardTitle;
+//}
+//
+//- (UIImage *)backgroundImageForCard:(Card *)card {  // set card bgimage
+//  return [UIImage imageNamed:card.isChosen ? @"CardFront" : @"CardBack"];
+//}
 
 #pragma mark - lifecycle
+- (void)configureView {
+  for (PlayingCardView *cardView in self.cardViews) {
+    NSUInteger cardViewIndex = [self.cardViews indexOfObject:cardView];
+    Card *card = [self.game cardAtIndex:cardViewIndex];
+    PlayingCard *playingCard;
+    if ([card isMemberOfClass:[PlayingCard class]]) {
+      playingCard = (PlayingCard *)card;
+    }
+    cardView.rank = playingCard.rank;
+    cardView.suit = playingCard.suit;
+  }
+}
 
 - (void)viewDidLoad {
   [super viewDidLoad];

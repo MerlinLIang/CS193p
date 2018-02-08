@@ -9,6 +9,7 @@
 #import "SetCardMatchingGameViewController.h"
 #import "SetCardDeck.h"
 #import "SetCard.h"
+#import "SetCardView.h"
 
 @interface SetCardMatchingGameViewController ()
 
@@ -21,6 +22,20 @@
 }
 
 #pragma mark - lifecycle
+- (void)configureView {
+  for (SetCardView *cardView in self.cardViews) {
+    NSUInteger cardViewIndex = [self.cardViews indexOfObject:cardView];
+    Card *card = [self.game cardAtIndex:cardViewIndex];
+    SetCard *setCard;
+    if ([card isMemberOfClass:[SetCard class]]) {
+      setCard = (SetCard *)card;
+    }
+    cardView.number = setCard.number;
+    cardView.symbol = setCard.symbol;
+    cardView.shading = setCard.shading;
+    cardView.color = setCard.color;
+  }
+}
 
 - (void)viewDidLoad {
   [super viewDidLoad];
@@ -30,47 +45,47 @@
 #pragma mark - getters & setters
 
 - (Deck *)createCardDeck {
-  return [[SetCardDeck alloc] initWithSymbols:@[@"▲", @"●", @"◼︎"] andColors:@[@0, @3, @2]];
+  return [[SetCardDeck alloc] initWithColors:@[@0, @3, @2]];
 }
 
 #pragma mark - Play game method
 // 翻牌
-- (IBAction)touchCardButton:(UIButton *)sender {    // when pick a card
+- (IBAction)touchCardView:(UIView *)sender {    // when pick a card
   [self scoreRecord];
-  NSUInteger chosenButtonIndex = [self.cardButtons indexOfObject:sender];
+  NSUInteger chosenButtonIndex = [self.cardViews indexOfObject:sender];
   [self.game chooseCardAtIndex:chosenButtonIndex cardCount: 2];   // matching mode, assume by settings
   [self updateUI];
 }
 
 #pragma mark - Card content
 
-- (NSAttributedString *)cardFace:(Card *)card {
-  if (![card isKindOfClass:[SetCard class]]) {
-    return nil;
-  }
-  SetCard *targetCard = (SetCard *)card;
-  NSMutableAttributedString *cardFace = [[NSMutableAttributedString alloc] init];
-  UIFont *pfont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-  UIFontDescriptor *fd = [pfont fontDescriptor];
-  UIFont *font = [UIFont fontWithDescriptor:fd size:18];
-  for (int number = 0; number < targetCard.number; number++) {
-    NSAttributedString *singleCardFace = [[NSAttributedString alloc] initWithString:targetCard.symbol
-                                                                         attributes:@{NSStrokeColorAttributeName:[self colors][targetCard.color],
-                                                                                      NSStrokeWidthAttributeName:[self patternShadingWidth][targetCard.shading],
-                                                                                      NSForegroundColorAttributeName:[self patternColor:targetCard.color patternShading:targetCard.shading],
-                                                                                      NSFontAttributeName:font}];
-    [cardFace appendAttributedString:singleCardFace];
-  }
-  return [cardFace copy];
-}
-
-- (NSAttributedString *)titleForCard:(Card *)card {
-  return [self cardFace:card];
-}
-
-- (UIImage *)backgroundImageForCard:(Card *)card {
-  return [UIImage imageNamed:card.isChosen ? @"SetCardSelected" : @"SetCardNormal"];
-}
+//- (NSAttributedString *)cardFace:(Card *)card {
+//  if (![card isKindOfClass:[SetCard class]]) {
+//    return nil;
+//  }
+//  SetCard *targetCard = (SetCard *)card;
+//  NSMutableAttributedString *cardFace = [[NSMutableAttributedString alloc] init];
+//  UIFont *pfont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+//  UIFontDescriptor *fd = [pfont fontDescriptor];
+//  UIFont *font = [UIFont fontWithDescriptor:fd size:18];
+//  for (int number = 0; number < targetCard.number; number++) {
+//    NSAttributedString *singleCardFace = [[NSAttributedString alloc] initWithString:targetCard.symbol
+//                                                                         attributes:@{NSStrokeColorAttributeName:[self colors][targetCard.color],
+//                                                                                      NSStrokeWidthAttributeName:[self patternShadingWidth][targetCard.shading],
+//                                                                                      NSForegroundColorAttributeName:[self patternColor:targetCard.color patternShading:targetCard.shading],
+//                                                                                      NSFontAttributeName:font}];
+//    [cardFace appendAttributedString:singleCardFace];
+//  }
+//  return [cardFace copy];
+//}
+//
+//- (NSAttributedString *)titleForCard:(Card *)card {
+//  return [self cardFace:card];
+//}
+//
+//- (UIImage *)backgroundImageForCard:(Card *)card {
+//  return [UIImage imageNamed:card.isChosen ? @"SetCardSelected" : @"SetCardNormal"];
+//}
 
 #pragma mark - Card appearance methods
 
