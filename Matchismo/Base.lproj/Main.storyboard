@@ -40,13 +40,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="90Q-re-Ibv">
-                                <rect key="frame" x="52" y="512" width="271" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TJf-UZ-gMn" customClass="PlayingCardView">
                                 <rect key="frame" x="74" y="72" width="50" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -73,7 +66,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dui-oM-Yyp" customClass="PlayingCardView">
-                                <rect key="frame" x="17" y="155" width="50" height="75"/>
+                                <rect key="frame" x="16" y="155" width="50" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -99,11 +92,6 @@
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qpa-CG-yaC" customClass="PlayingCardView">
                                 <rect key="frame" x="307" y="155" width="50" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9xC-WV-ruz" customClass="PlayingCardView">
-                                <rect key="frame" x="17" y="238" width="50" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -197,18 +185,16 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9xC-WV-ruz" customClass="PlayingCardView">
+                                <rect key="frame" x="16" y="238" width="50" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Playing Card Matching Game" id="puX-fZ-fgh">
-                        <barButtonItem key="rightBarButtonItem" title="Hitsory" springLoaded="YES" id="OFJ-Gv-wIW">
-                            <connections>
-                                <segue destination="gIa-nX-YVV" kind="show" identifier="Show History" id="lGZ-66-2js"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Playing Card Matching Game" id="puX-fZ-fgh"/>
                     <connections>
-                        <outlet property="hintLable" destination="90Q-re-Ibv" id="Eh3-sL-Yot"/>
                         <outlet property="scoreLable" destination="W9n-8b-qBl" id="7H6-24-kaw"/>
                         <outletCollection property="cardViews" destination="ag2-5r-qpz" id="gPB-fZ-F9O"/>
                         <outletCollection property="cardViews" destination="TJf-UZ-gMn" id="Mbq-pV-mum"/>
@@ -245,36 +231,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1911.2" y="37.331334332833585"/>
-        </scene>
-        <!--History-->
-        <scene sceneID="icm-wY-c9W">
-            <objects>
-                <viewController id="gIa-nX-YVV" customClass="HistoryViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="m7d-wn-Q7Y"/>
-                        <viewControllerLayoutGuide type="bottom" id="Wyn-nu-kLM"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="uMX-Wl-5lc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QcF-09-W31">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="History" id="ud2-FX-Wyo"/>
-                    <connections>
-                        <outlet property="historyTextView" destination="QcF-09-W31" id="UXz-VO-z7y"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EnZ-Tl-bia" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3084" y="457"/>
         </scene>
         <!--Playing Card Game-->
         <scene sceneID="psa-Gs-bEp">
@@ -348,13 +304,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o4K-J5-6E1">
-                                <rect key="frame" x="52" y="458" width="271" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RlI-bh-gq0" customClass="SetCardView">
@@ -510,15 +459,8 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Set Card Matching Game" id="c0M-dM-y6O">
-                        <barButtonItem key="rightBarButtonItem" title="Hitsory" id="0a9-bS-SPr">
-                            <connections>
-                                <segue destination="gIa-nX-YVV" kind="show" identifier="Show History" id="v8W-07-MfV"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Set Card Matching Game" id="c0M-dM-y6O"/>
                     <connections>
-                        <outlet property="hintLable" destination="o4K-J5-6E1" id="rYB-OQ-1fE"/>
                         <outlet property="scoreLable" destination="tz3-yE-vQv" id="pUe-uQ-DGT"/>
                         <outletCollection property="cardViews" destination="0Bh-ms-N8f" id="rD8-py-7PD"/>
                         <outletCollection property="cardViews" destination="RlI-bh-gq0" id="Kvl-9S-Vk2"/>
@@ -799,8 +741,5 @@
     <resources>
         <image name="barIterm" width="15" height="15"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="v8W-07-MfV"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

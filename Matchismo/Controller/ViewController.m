@@ -7,13 +7,11 @@
 //
 
 #import "ViewController.h"
-#import "HistoryViewController.h"
 
 @interface ViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *scoreLable;
 @property (weak, nonatomic) IBOutlet UILabel *hintLable;
-@property (strong, nonatomic) NSMutableArray *hintHistories;    // of NSAttributedString
 
 @end
 
@@ -26,13 +24,6 @@
     _scoreRecord = [[ScoreRecord alloc] init];
   }
   return _scoreRecord;
-}
-
-- (NSMutableArray *)hintHistories {
-  if (!_hintHistories) {
-    _hintHistories = [[NSMutableArray alloc] init];
-  }
-  return _hintHistories;
 }
 
 - (CardMatchingGame *)game {
@@ -64,8 +55,6 @@
 //    cardButton.enabled = !card.isMatched;
 //  }
 //  self.scoreLable.text = [NSString stringWithFormat:@"Score:%ld", self.game.score];
-//  [self textForHintLable];
-//  self.hintLable.attributedText = [self.hintHistories lastObject];
    */
 }
 
@@ -120,7 +109,6 @@
 //  UIFontDescriptor *fd = [sysFont fontDescriptor];
 //  UIFont *font = [UIFont fontWithDescriptor:fd size:17];
 //  [attributedText addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, attributedText.length)];
-//  [self.hintHistories addObject:attributedText];
 //}
 
 
@@ -137,23 +125,11 @@
   self.game = nil;
   [self updateUI];
   self.hintLable.text = @"";
-  self.hintHistories = nil;
   self.scoreRecord = nil;
 }
 
 - (NSString *)gameName {    // abstract
   return nil;
-}
-
-#pragma mark - Segue
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-  if ([segue.identifier isEqualToString:@"Show History"]) {
-    if ([segue.destinationViewController isKindOfClass:[HistoryViewController class]]) {
-      HistoryViewController *hvc = (HistoryViewController *)segue.destinationViewController;
-      hvc.hintHistories = self.hintHistories;
-    }
-  }
 }
 
 @end

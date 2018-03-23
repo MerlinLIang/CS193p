@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		EE06B3181E544E92006A690C /* SetCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = EE06B3171E544E92006A690C /* SetCardDeck.m */; };
-		EE06B32E1E5AEB75006A690C /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE06B3271E5AEB75006A690C /* HistoryViewController.m */; };
 		EE06B32F1E5AEB75006A690C /* PlayingCardMatchingGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE06B3291E5AEB75006A690C /* PlayingCardMatchingGameViewController.m */; };
 		EE06B3301E5AEB75006A690C /* SetCardMatchingGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE06B32B1E5AEB75006A690C /* SetCardMatchingGameViewController.m */; };
 		EE06B3311E5AEB75006A690C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE06B32D1E5AEB75006A690C /* ViewController.m */; };
@@ -54,8 +53,6 @@
 /* Begin PBXFileReference section */
 		EE06B3161E544E92006A690C /* SetCardDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetCardDeck.h; path = Model/SetCardDeck.h; sourceTree = "<group>"; };
 		EE06B3171E544E92006A690C /* SetCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SetCardDeck.m; path = Model/SetCardDeck.m; sourceTree = "<group>"; };
-		EE06B3261E5AEB75006A690C /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HistoryViewController.h; path = Controller/HistoryViewController.h; sourceTree = "<group>"; };
-		EE06B3271E5AEB75006A690C /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HistoryViewController.m; path = Controller/HistoryViewController.m; sourceTree = "<group>"; };
 		EE06B3281E5AEB75006A690C /* PlayingCardMatchingGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayingCardMatchingGameViewController.h; path = Controller/PlayingCardMatchingGameViewController.h; sourceTree = "<group>"; };
 		EE06B3291E5AEB75006A690C /* PlayingCardMatchingGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayingCardMatchingGameViewController.m; path = Controller/PlayingCardMatchingGameViewController.m; sourceTree = "<group>"; };
 		EE06B32A1E5AEB75006A690C /* SetCardMatchingGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetCardMatchingGameViewController.h; path = Controller/SetCardMatchingGameViewController.h; sourceTree = "<group>"; };
@@ -133,8 +130,6 @@
 		EE06B3251E5AEB0C006A690C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				EE06B3261E5AEB75006A690C /* HistoryViewController.h */,
-				EE06B3271E5AEB75006A690C /* HistoryViewController.m */,
 				EE06B3281E5AEB75006A690C /* PlayingCardMatchingGameViewController.h */,
 				EE06B3291E5AEB75006A690C /* PlayingCardMatchingGameViewController.m */,
 				EE06B32A1E5AEB75006A690C /* SetCardMatchingGameViewController.h */,
@@ -400,7 +395,6 @@
 				EE8012E11E5EB50F00DF48AA /* UserDefaultHelper.m in Sources */,
 				EE5C6BA11E4B3D5400FAC5C2 /* PlayingCard.m in Sources */,
 				EE8012DB1E5D960A00DF48AA /* HighScoresViewController.m in Sources */,
-				EE06B32E1E5AEB75006A690C /* HistoryViewController.m in Sources */,
 				EE9022F81E4C4A3000DA55D2 /* CardMatchingGame.m in Sources */,
 				EE06B3181E544E92006A690C /* SetCardDeck.m in Sources */,
 				EE06B3311E5AEB75006A690C /* ViewController.m in Sources */,
