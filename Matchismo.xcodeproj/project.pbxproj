@@ -181,7 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				EE5C6B711E4B12CC00FAC5C2 /* Main.storyboard */,
-				EE8339DF20183339002974F4 /* Constants */,
+				EE8339DF20183339002974F4 /* Util */,
 				EE4D05132008FFAF00494838 /* View */,
 				EE06B3251E5AEB0C006A690C /* Controller */,
 				EE5C6B9E1E4B3BC400FAC5C2 /* Model */,
@@ -240,18 +240,18 @@
 				EE06B3171E544E92006A690C /* SetCardDeck.m */,
 				EE8012DC1E5E77DF00DF48AA /* ScoreRecord.h */,
 				EE8012DD1E5E77DF00DF48AA /* ScoreRecord.m */,
-				EE8012DF1E5EB50F00DF48AA /* UserDefaultHelper.h */,
-				EE8012E01E5EB50F00DF48AA /* UserDefaultHelper.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
 		};
-		EE8339DF20183339002974F4 /* Constants */ = {
+		EE8339DF20183339002974F4 /* Util */ = {
 			isa = PBXGroup;
 			children = (
 				EE8339E020183360002974F4 /* SetCardConstant.h */,
+				EE8012DF1E5EB50F00DF48AA /* UserDefaultHelper.h */,
+				EE8012E01E5EB50F00DF48AA /* UserDefaultHelper.m */,
 			);
-			name = Constants;
+			name = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

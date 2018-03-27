@@ -9,13 +9,20 @@
 #import "HighScoresViewController.h"
 #import "ScoreRecord.h"
 
+typedef enum : NSUInteger {
+  PlayingCardGame,
+  SetCardGame,
+} GameType;
+
 @interface HighScoresViewController ()
 
 @property (strong, nonatomic) ScoreRecord *scoreRecord;
-@property (weak, nonatomic) IBOutlet UIView *PlayingCardGameRecordView;
-@property (weak, nonatomic) IBOutlet UIView *SetCardGameRecordView;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *PlayingCardGameRecordViewHeight;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *SetCardGameRecordViewHeight;
+@property (weak, nonatomic) IBOutlet UIStackView *PlayingCardTimeStack;
+@property (weak, nonatomic) IBOutlet UIStackView *PlayingCardScoreStack;
+@property (weak, nonatomic) IBOutlet UIStackView *PlayingCardDuirationStack;
+@property (weak, nonatomic) IBOutlet UIStackView *SetCardTimeStack;
+@property (weak, nonatomic) IBOutlet UIStackView *SetCardScoreStack;
+@property (weak, nonatomic) IBOutlet UIStackView *SetCardDuirationStack;
 
 @end
 
@@ -91,67 +98,66 @@
 
 // initial UI
 - (void)initUIWithKey:(NSString *)key {
-  // remove all subviews in tow records view
-  for (int i = 4; i < self.PlayingCardGameRecordView.subviews.count;) {
-    UIView *view = self.PlayingCardGameRecordView.subviews[i];
-    [view removeFromSuperview];
-  }
-  for (int i = 4; i < self.SetCardGameRecordView.subviews.count;) {
-    UIView *view = self.SetCardGameRecordView.subviews[i];
-    [view removeFromSuperview];
-  }
+  // remove all records in stacks
+  [self clearStack:self.PlayingCardTimeStack];
+  [self clearStack:self.PlayingCardScoreStack];
+  [self clearStack:self.PlayingCardDuirationStack];
+  [self clearStack:self.SetCardTimeStack];
+  [self clearStack:self.SetCardScoreStack];
+  [self clearStack:self.SetCardDuirationStack];
   
-  self.PlayingCardGameRecordViewHeight.constant = 101;
-  self.SetCardGameRecordViewHeight.constant = 101;
-  
-  int playingCardGameRecordsY = 93;
+  // add records to stacks
   NSArray *playingCardRecords = [self attributedRecordsForGame:@"PlayingCardGame" byKey:key];
   for (NSDictionary *record in playingCardRecords) {
-    [self addSingleRecord:record intoView:self.PlayingCardGameRecordView atY:&playingCardGameRecordsY byViewConstraint:self.PlayingCardGameRecordViewHeight];
+    [self addSingleRecord:record toGame:PlayingCardGame];
   }
   
-  int setCardGameRecordsY = 77;
   NSArray *setCardRecords = [self attributedRecordsForGame:@"SetCardGame" byKey:key];
   for (NSDictionary *record in setCardRecords) {
-    [self addSingleRecord:record intoView:self.SetCardGameRecordView atY:&setCardGameRecordsY byViewConstraint:self.SetCardGameRecordViewHeight];
+    [self addSingleRecord:record toGame:SetCardGame];
   }
-  self.SetCardGameRecordViewHeight.constant += 20;
 }
 
 // create single record and add it into view
-- (void)addSingleRecord:(NSDictionary *)record intoView:(UIView *)view atY:(int *)Y byViewConstraint:(NSLayoutConstraint *)constraint {
-  // position constant
-  const int HEIGHT = 21;
-  const int TIME_X = 27;
-  const int TIME_WIDTH = 135;
-  const int SCORE_X = 170;
-  const int SCORE_WIDTH = 56;
-  const int DUIRATION_X = 258;
-  const int DUIRATION_WIDTH = 89;
-  
+- (void)addSingleRecord:(NSDictionary *)record toGame:(GameType)game {
   // create lables
-  UILabel *time = [[UILabel alloc] initWithFrame:CGRectMake(TIME_X, *Y, TIME_WIDTH, HEIGHT)];
-  UILabel *score = [[UILabel alloc] initWithFrame:CGRectMake(SCORE_X, *Y, SCORE_WIDTH, HEIGHT)];
-  UILabel *duiration = [[UILabel alloc] initWithFrame:CGRectMake(DUIRATION_X, *Y, DUIRATION_WIDTH, HEIGHT)];
-  
-  // set Y for next row
-  const int ROW_SPACE = 8;
-  *Y = *Y + HEIGHT +ROW_SPACE;
+  UILabel *time = [self recordLable];
+  UILabel *score = [self recordLable];
+  UILabel *duiration = [self recordLable];
   
   // set content of lables
   time.attributedText = record[@"GameDate"];
   score.attributedText = record[@"Score"];
   duiration.attributedText = record[@"Duiration"];
   
-  // add labels to view
-  [view addSubview:time];
-  [view addSubview:score];
-  [view addSubview:duiration];
-  
-  // modefy view contraint to adapt content
-  constraint.constant = constraint.constant + HEIGHT + ROW_SPACE;
+  // add lables to stacks
+  if (game == PlayingCardGame) {
+    [self.PlayingCardTimeStack addArrangedSubview:time];
+    [self.PlayingCardScoreStack addArrangedSubview:score];
+    [self.PlayingCardDuirationStack addArrangedSubview:duiration];
+  } else if (game == SetCardGame) {
+    [self.SetCardTimeStack addArrangedSubview:time];
+    [self.SetCardScoreStack addArrangedSubview:score];
+    [self.SetCardDuirationStack addArrangedSubview:duiration];
+  }
 }
 
+// get a record label
+- (UILabel *)recordLable {
+  UILabel *record = [[UILabel alloc] initWithFrame:CGRectZero];
+  record.textAlignment = NSTextAlignmentCenter;
+  return record;
+}
+
+// remove records in stack
+- (void)clearStack:(UIStackView *)stack {
+  for (UILabel *lable in stack.arrangedSubviews) {
+    if (lable.tag == 2) {
+      continue;
+    }
+    [lable removeFromSuperview];
+  }
+}
 
 #pragma mark - Lifecycle
 
